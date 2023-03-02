@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from google.colab import drive
+
+# Mount Google Drive
+drive.mount('/content/drive')
+
+# Load data from CSV file
+file_path = '/content/drive/MyDrive/50v50_collated_data - Sheet3.csv'
+df = pd.read_csv(file_path)
+x= df['L-Tryptophan']
+group = df['Patient']
+
+# Create color-coded scatter plot
+plt.scatter(x[group==0].index, x[group==0].values, color='blue', label='Patient')
+plt.scatter(x[group==1].index, x[group==1].values, color='red', label='Control')
+plt.xlabel('CMS')
+plt.ylabel('Value')
+plt.title('Scatter Plot of L-Tryptophan(Patient vs Control)')
+plt.legend();
+plt.show()
