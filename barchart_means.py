@@ -15,13 +15,15 @@ file = "C:/Users/gsinha/Downloads/ASD Biolog Project - Raw Data/ASD Biolog Proje
 
 for i in range(8):
     temp = pd.read_excel(file,sheet_name="PM"+str(i+1))
-    print(temp.head)
+    #print(temp.head)
     temp = temp.rename({"P value ": "p_value"},axis=1)
-    print(temp.columns)
-    temp = temp[temp.p_value>0.05]
+    #print(temp.columns)
+    temp = temp[temp.p_value>0.5]
+    temp=temp.nlargest(10,'p_value')
     temp = temp.drop(temp.columns[[0,4,5]], axis=1)
     temp = temp[temp.substrate != 'NegativeControl']
     #print(temp.columns)
     ax = temp.plot.bar(x='substrate',rot=90)
     ax.set_xlabel("Biomarkers")
     ax.set_ylabel("Absorption Rate")
+    

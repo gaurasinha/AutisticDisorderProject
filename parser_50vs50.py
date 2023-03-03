@@ -25,3 +25,8 @@ if os.path.isdir(path) == True:
             files.append(path + i)
 
 print(files) #checking if it picked all the files
+
+main=pd.DataFrame(columns=['CMS','Patient','Control'])
+for pm in files:
+    temp = pd.read_excel(pm, sheet_name = "ABS")
+    main = 
