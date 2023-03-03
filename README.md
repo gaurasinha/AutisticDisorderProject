@@ -1,2 +1,2 @@
 # AutisticDisorderProject
-parser_50vs50 is a work in progress
+Developing a classifier for Autism Diagnosis trained on data from metabolic profiles
